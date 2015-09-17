@@ -1,0 +1,21 @@
+#directories
+.idea/**
+target/**
+etc/**
+tles/**
+project/
+target/
+.settings/
+
+#extensions
+*.iml
+*.bin
+*.tle
+*.orig
+.classpath
+.project
+.cache
+
+#exact files
+.DS_Store
+egm96.gcon.dat
