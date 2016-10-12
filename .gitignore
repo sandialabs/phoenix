@@ -1,21 +1,15 @@
-#directories
-.idea/**
-target/**
-etc/**
-tles/**
-project/
+### Maven template
 target/
-.settings/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
 
-#extensions
+### JetBrains template
+.idea/*
+!.idea/copyright
 *.iml
-*.bin
-*.tle
-*.orig
-.classpath
-.project
-.cache
-
-#exact files
-.DS_Store
-egm96.gcon.dat
