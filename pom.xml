@@ -63,7 +63,6 @@
         <maven.checkstyle.plugin.version>2.6</maven.checkstyle.plugin.version>
         <maven.findbugs.plugin.version>2.3.3</maven.findbugs.plugin.version>
         <maven.release.plugin.version>2.5.2</maven.release.plugin.version>
-        <maven.versions.plugin.version>2.1</maven.versions.plugin.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <repo.location>scm:git:git@gitlab.sandia.gov:phoenix/phoenix.git</repo.location>
@@ -105,11 +104,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${maven.versions.plugin.version}</version>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
