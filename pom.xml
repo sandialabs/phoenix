@@ -114,12 +114,7 @@
         <module>phoenix-astrodynamics</module>
     </modules>
     
-    <!--
-            see http://scala-tools.org/mvnsites/maven-scala-plugin/usage_java.html
-    -->
     <build>
-        <!-- http://www.sonatype.com/people/2008/05/optimal-maven-plugin-configuration/ -->
-        <!-- http://stackoverflow.com/questions/10483180/maven-what-is-pluginmanagement -->
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -205,7 +200,6 @@
                         <argLine>-Xmx512m</argLine>
                     </configuration>
                 </plugin>
-                <!-- http://maven.apache.org/plugins/maven-assembly-plugin/single-mojo.html -->
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${maven.assembly.plugin.version}</version>
