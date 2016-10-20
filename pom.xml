@@ -125,23 +125,4 @@
             </plugins>
         </pluginManagement>
     </build>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>${maven.scala.plugin.version}</version>
-                <configuration>
-                    <scalaVersion>${scala.version}</scalaVersion>
-                    <jvmArgs>
-                        <jvmArg>-Xms64m</jvmArg>
-                        <jvmArg>-Xmx1024m</jvmArg>
-                    </jvmArgs>
-                    <forceAggregate>true</forceAggregate>
-                    <linksource>true</linksource>
-                    <sourceDir>src/main/scala</sourceDir>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
 </project>
