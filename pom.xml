@@ -45,7 +45,6 @@
         <junit.version>4.8.2</junit.version>
 
         <maven.scala.plugin.version>3.1.6</maven.scala.plugin.version>
-        <maven.clean.plugin.version>2.5</maven.clean.plugin.version>
         <maven.dependency.plugin.version>2.8</maven.dependency.plugin.version>
         <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
         <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
@@ -115,11 +114,6 @@
                         <pushChanges>false</pushChanges>
                         <arguments>-DskipTests=true</arguments>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven.clean.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
