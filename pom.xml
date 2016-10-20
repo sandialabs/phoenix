@@ -47,10 +47,6 @@
         <scalatest.version>2.2.2</scalatest.version>
         <junit.version>4.8.2</junit.version>
 
-        <!-- Plugin versioning -->
-        <maven.izpack.5.plugin.version>5.0.0-rc1</maven.izpack.5.plugin.version>
-        <maven.izpack.plugin.version>1.0-alpha-5</maven.izpack.plugin.version>
-        <izpack.standalone.compiler.version>4.3.5</izpack.standalone.compiler.version>
         <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
         <maven.scala.plugin.version>3.1.6</maven.scala.plugin.version>
         <maven.site.plugin.version>3.3</maven.site.plugin.version>
