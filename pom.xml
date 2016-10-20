@@ -37,7 +37,6 @@
     </developers>
 
     <properties>
-        <maven.version>3.1.1</maven.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
@@ -104,7 +103,7 @@
     </distributionManagement>
     
     <prerequisites>
-        <maven>${maven.version}</maven>
+        <maven>3.0.5</maven>
     </prerequisites>
 
     <modules>
