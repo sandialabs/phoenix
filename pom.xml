@@ -50,7 +50,6 @@
         <maven.surefire.plugin.version>2.16</maven.surefire.plugin.version>
         <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
         <maven.eclipse.plugin.version>2.9</maven.eclipse.plugin.version>
-        <maven.exec.plugin.version>1.2.1</maven.exec.plugin.version>
         <maven.project.info.reports.plugin.version>2.2</maven.project.info.reports.plugin.version>
         <maven.jxr.plugin.version>2.1</maven.jxr.plugin.version>
         <maven.cobertura.plugin.version>2.4</maven.cobertura.plugin.version>
@@ -131,19 +130,6 @@
                     <version>${maven.surefire.plugin.version}</version>
                     <configuration>
                         <argLine>-Xmx512m</argLine>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>${maven.exec.plugin.version}</version>
-                    <configuration>
-                        <!--
-                        READ SECTION IN maven-assembly-plugin
-
-                        <mainClass>${main.class}</mainClass>
-                        <arguments>-classpath</arguments>
-                        -->
                     </configuration>
                 </plugin>
             </plugins>
