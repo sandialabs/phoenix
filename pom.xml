@@ -47,7 +47,6 @@
         <maven.scala.plugin.version>3.1.6</maven.scala.plugin.version>
         <maven.javadoc.plugin.version>2.7</maven.javadoc.plugin.version>
         <maven.scm.plugin.version>1.9</maven.scm.plugin.version>
-        <maven.surefire.plugin.version>2.16</maven.surefire.plugin.version>
         <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
         <maven.eclipse.plugin.version>2.9</maven.eclipse.plugin.version>
         <maven.project.info.reports.plugin.version>2.2</maven.project.info.reports.plugin.version>
@@ -121,15 +120,6 @@
                     <configuration>
                         <goals>install</goals>
                         <checkoutDirectory>${project.name}</checkoutDirectory>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <!-- see http://maven.apache.org/plugins/maven-surefire-plugin/test-mojo.html -->
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven.surefire.plugin.version}</version>
-                    <configuration>
-                        <argLine>-Xmx512m</argLine>
                     </configuration>
                 </plugin>
             </plugins>
