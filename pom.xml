@@ -45,7 +45,6 @@
         <junit.version>4.8.2</junit.version>
 
         <maven.scala.plugin.version>3.1.6</maven.scala.plugin.version>
-        <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
         <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
         <maven.javadoc.plugin.version>2.7</maven.javadoc.plugin.version>
         <maven.resources.plugin.version>2.6</maven.resources.plugin.version>
@@ -113,11 +112,6 @@
                         <pushChanges>false</pushChanges>
                         <arguments>-DskipTests=true</arguments>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven.deploy.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
