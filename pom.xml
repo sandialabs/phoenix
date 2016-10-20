@@ -47,7 +47,6 @@
         <maven.scala.plugin.version>3.1.6</maven.scala.plugin.version>
         <maven.javadoc.plugin.version>2.7</maven.javadoc.plugin.version>
         <maven.resources.plugin.version>2.6</maven.resources.plugin.version>
-        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
         <maven.scm.plugin.version>1.9</maven.scm.plugin.version>
         <maven.surefire.plugin.version>2.16</maven.surefire.plugin.version>
         <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
@@ -113,13 +112,9 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <!-- see http://maven.apache.org/plugins/maven-source-plugin/ -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven.source.plugin.version}</version>
-                    <configuration>
-                        <attach>true</attach>
-                    </configuration>
+                    <version>3.0.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
