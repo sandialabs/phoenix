@@ -62,7 +62,6 @@
         <maven.cobertura.plugin.version>2.4</maven.cobertura.plugin.version>
         <maven.checkstyle.plugin.version>2.6</maven.checkstyle.plugin.version>
         <maven.findbugs.plugin.version>2.3.3</maven.findbugs.plugin.version>
-        <maven.release.plugin.version>2.5.2</maven.release.plugin.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <repo.location>scm:git:git@gitlab.sandia.gov:phoenix/phoenix.git</repo.location>
@@ -107,7 +106,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>${maven.release.plugin.version}</version>
+                    <version>2.5.3</version>
                     <configuration>
                         <tagNameFormat>v@{project.version}</tagNameFormat>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
