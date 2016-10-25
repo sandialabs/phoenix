@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>gov.sandia.phoenix</groupId>
-    <artifactId>phoenix</artifactId>
+    <artifactId>parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>phoenix</name>
+    <name>phoenix-parent</name>
     <url>https://github.com/sandialabs/phoenix</url>
     <inceptionYear>2012</inceptionYear>
     
