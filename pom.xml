@@ -42,8 +42,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <scala.version>2.11.2</scala.version>
-        <scalatest.version>2.2.2</scalatest.version>
+        <scala.version>2.11.8</scala.version>
+        <scala.version.tools>2.11</scala.version.tools>
 
         <repo.url>github.com/sandialabs/phoenix</repo.url>
     </properties>
@@ -62,7 +62,22 @@
         <module>phoenix-math</module>
         <module>phoenix-astrodynamics</module>
     </modules>
-    
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest_${scala.version.tools}</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -79,6 +94,33 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <!-- disable surefire -->
+                <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-surefire-plugin</artifactId>
+                  <configuration>
+                    <skipTests>true</skipTests>
+                  </configuration>
+                </plugin>
+                <!-- enable scalatest -->
+                <plugin>
+                  <groupId>org.scalatest</groupId>
+                  <artifactId>scalatest-maven-plugin</artifactId>
+                  <version>1.0</version>
+                  <configuration>
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                    <junitxml>.</junitxml>
+                    <filereports>WDF TestSuite.txt</filereports>
+                  </configuration>
+                  <executions>
+                    <execution>
+                      <id>test</id>
+                      <goals>
+                        <goal>test</goal>
+                      </goals>
+                    </execution>
+                  </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
