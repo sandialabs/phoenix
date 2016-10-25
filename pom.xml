@@ -53,24 +53,7 @@
         <url>${repo.location}</url>
         <tag>HEAD</tag>
     </scm>
-    
-    <distributionManagement>
-        <repository>
-            <id>lego.sandia.gov</id>
-            <name>phoenix-releases</name>
-            <url>https://lego.sandia.gov/artifactory/phoenix-releases-local/</url>
-        </repository>
-        <snapshotRepository>
-            <id>lego.sandia.gov</id>
-            <name>phoenix-snapshots</name>
-            <url>https://lego.sandia.gov/artifactory/phoenix-snapshots-local/</url>
-        </snapshotRepository>
-        <site>
-            <id>website</id>
-            <url>scp:phoenix.sandia.gov/var/http/phoenix/${project.name}</url>
-        </site>
-    </distributionManagement>
-    
+
     <prerequisites>
         <maven>3.0.5</maven>
     </prerequisites>
