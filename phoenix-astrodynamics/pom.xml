@@ -8,14 +8,10 @@
         <artifactId>parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
+
     <artifactId>astrodynamics</artifactId>
     <name>phoenix-astrodynamics</name>
     <description>Code related to space and astrodynamics.</description>
-
-    <properties>
-        <main.class>gov.sandia.phoenix.widgets.JTleEditor</main.class>
-    </properties>
 
     <dependencies>
         <dependency>
