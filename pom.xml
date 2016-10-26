@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <groupId>gov.sandia.phoenix</groupId>
-    <artifactId>phoenix</artifactId>
+    <artifactId>parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>phoenix</name>
-    <url>https://lego.sandia.gov</url>
+    <name>phoenix-parent</name>
+    <url>https://github.com/sandialabs/phoenix</url>
     <inceptionYear>2012</inceptionYear>
-    
+
     <organization>
         <name>Sandia National Laboratories</name>
         <url>http://www.sandia.gov</url>
     </organization>
-  
+
     <developers>
         <developer>
             <id>Wolverine</id>
@@ -37,100 +38,94 @@
     </developers>
 
     <properties>
-        <maven.version>3.1.1</maven.version>
-        <!-- http://mojo.codehaus.org/versions-maven-plugin/usage.html -->
-        <java.source.version>1.8</java.source.version>
-        <java.target.version>1.8</java.target.version>
-
-        <!-- Library versioning -->
-        <!-- http://scala-tools.org/repo-releases/org/scala-lang/scala-library/ -->
-        <scala.version>2.11.2</scala.version>
-        <!-- http://scala-tools.org/repo-releases/org/scalatest/scalatest/ -->
-        <scalatest.version>2.2.2</scalatest.version>
-        <junit.version>4.8.2</junit.version>
-
-        <!-- Plugin versioning -->
-        <maven.izpack.5.plugin.version>5.0.0-rc1</maven.izpack.5.plugin.version>
-        <maven.izpack.plugin.version>1.0-alpha-5</maven.izpack.plugin.version>
-        <izpack.standalone.compiler.version>4.3.5</izpack.standalone.compiler.version>
-        <maven.assembly.plugin.version>2.4</maven.assembly.plugin.version>
-        <maven.scala.plugin.version>3.1.6</maven.scala.plugin.version>
-        <maven.site.plugin.version>3.3</maven.site.plugin.version>
-        <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
-        <maven.clean.plugin.version>2.5</maven.clean.plugin.version>
-        <maven.dependency.plugin.version>2.8</maven.dependency.plugin.version>
-        <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
-        <maven.install.plugin.version>2.5.1</maven.install.plugin.version>
-        <maven.javadoc.plugin.version>2.7</maven.javadoc.plugin.version>
-        <maven.resources.plugin.version>2.6</maven.resources.plugin.version>
-        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
-        <maven.scm.plugin.version>1.9</maven.scm.plugin.version>
-        <maven.surefire.plugin.version>2.16</maven.surefire.plugin.version>
-        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
-        <maven.eclipse.plugin.version>2.9</maven.eclipse.plugin.version>
-        <maven.exec.plugin.version>1.2.1</maven.exec.plugin.version>
-        <maven.project.info.reports.plugin.version>2.2</maven.project.info.reports.plugin.version>
-        <maven.jxr.plugin.version>2.1</maven.jxr.plugin.version>
-        <maven.cobertura.plugin.version>2.4</maven.cobertura.plugin.version>
-        <maven.checkstyle.plugin.version>2.6</maven.checkstyle.plugin.version>
-        <maven.findbugs.plugin.version>2.3.3</maven.findbugs.plugin.version>
-        <maven.release.plugin.version>2.5.2</maven.release.plugin.version>
-        <maven.versions.plugin.version>2.1</maven.versions.plugin.version>
-
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <repo.location>scm:git:git@gitlab.sandia.gov:phoenix/phoenix.git</repo.location>
+
+        <scala.version>2.11.8</scala.version>
+        <scala.version.tools>2.11</scala.version.tools>
+
+        <repo.url>github.com/sandialabs/phoenix</repo.url>
     </properties>
 
     <scm>
-        <connection>${repo.location}</connection>
-        <developerConnection>${repo.location}</developerConnection>
-        <url>${repo.location}</url>
-        <tag>HEAD</tag>
+        <url>https://${repo.url}</url>
+        <connection>scm:git:git://${repo.url}.git</connection>
+        <developerConnection>scm:git:git@github.com:sandialabs/phoenix.git</developerConnection>
     </scm>
-    
-    <distributionManagement>
-        <repository>
-            <id>lego.sandia.gov</id>
-            <name>phoenix-releases</name>
-            <url>https://lego.sandia.gov/artifactory/phoenix-releases-local/</url>
-        </repository>
-        <snapshotRepository>
-            <id>lego.sandia.gov</id>
-            <name>phoenix-snapshots</name>
-            <url>https://lego.sandia.gov/artifactory/phoenix-snapshots-local/</url>
-        </snapshotRepository>
-        <site>
-            <id>website</id>
-            <url>scp:phoenix.sandia.gov/var/http/phoenix/${project.name}</url>
-        </site>
-    </distributionManagement>
-    
+
     <prerequisites>
-        <maven>${maven.version}</maven>
+        <maven>3.0.5</maven>
     </prerequisites>
 
     <modules>
         <module>phoenix-math</module>
         <module>phoenix-astrodynamics</module>
     </modules>
-    
-    <!--
-            see http://scala-tools.org/mvnsites/maven-scala-plugin/usage_java.html
-    -->
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest_${scala.version.tools}</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
-        <!-- http://www.sonatype.com/people/2008/05/optimal-maven-plugin-configuration/ -->
-        <!-- http://stackoverflow.com/questions/10483180/maven-what-is-pluginmanagement -->
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${maven.versions.plugin.version}</version>
+                    <groupId>net.alchim31.maven</groupId>
+                    <artifactId>scala-maven-plugin</artifactId>
+                    <version>3.2.2</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>add-source</goal>
+                                <goal>compile</goal>
+                                <goal>testCompile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- disable surefire -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+                <!-- enable scalatest -->
+                <plugin>
+                    <groupId>org.scalatest</groupId>
+                    <artifactId>scalatest-maven-plugin</artifactId>
+                    <version>1.0</version>
+                    <configuration>
+                        <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                        <junitxml>.</junitxml>
+                        <filereports>WDF TestSuite.txt</filereports>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>test</id>
+                            <goals>
+                                <goal>test</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>${maven.release.plugin.version}</version>
+                    <version>2.5.3</version>
                     <configuration>
                         <tagNameFormat>v@{project.version}</tagNameFormat>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
@@ -142,379 +137,21 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven.clean.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>${maven.dependency.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven.deploy.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>${maven.install.plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven.compiler.plugin.version}</version>
-                    <configuration>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                        <source>${java.source.version}</source>
-                        <target>${java.target.version}</target>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <!-- see http://maven.apache.org/plugins/maven-source-plugin/ -->
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven.source.plugin.version}</version>
+                    <version>3.0.1</version>
                     <configuration>
                         <attach>true</attach>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>${maven.resources.plugin.version}</version>
-                    <configuration>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-plugin</artifactId>
-                    <version>${maven.scm.plugin.version}</version>
-                    <configuration>
-                        <goals>install</goals>
-                        <checkoutDirectory>${project.name}</checkoutDirectory>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <!-- see http://maven.apache.org/plugins/maven-surefire-plugin/test-mojo.html -->
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven.surefire.plugin.version}</version>
-                    <configuration>
-                        <argLine>-Xmx512m</argLine>
-                    </configuration>
-                </plugin>
-                <!-- http://maven.apache.org/plugins/maven-assembly-plugin/single-mojo.html -->
-                <plugin>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>${maven.assembly.plugin.version}</version>
-                    <configuration>
-                        <descriptorRefs>
-                            <descriptorRef>jar-with-dependencies</descriptorRef>
-                        </descriptorRefs>
-                        <!--
-
-                        ** PLEASE READ **
-                        Since phoenix is more of a library and less of a deployable application, it doesn't
-                        make sense to have a fixed entry point. Instead, I recommend creating a second project where
-                        you use the phoenix API and then use the assembly plugin to create your über jar and specify
-                        the entry point( mainClass ) there.
-
-                        Alternatively, if you really want to use this project and to make an über jar, do not edit the
-                        pom instead go to the command line and do:
-
-                            mvn package <any other commandline options> -DmainClass=<the entry point>
-
-                        ** PLEASE READ **
-
-                        <archive>
-                            <manifest>
-                                <mainClass>${main.class}</mainClass>
-                            </manifest>
-                        </archive>
-                        <finalName>phoenix-core-with-deps</finalName>
-                        <appendAssemblyId>false</appendAssemblyId>
-                        -->
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>${maven.exec.plugin.version}</version>
-                    <configuration>
-                        <!--
-                        READ SECTION IN maven-assembly-plugin
-
-                        <mainClass>${main.class}</mainClass>
-                        <arguments>-classpath</arguments>
-                        -->
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>${maven.site.plugin.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-ssh</artifactId>
-                            <version>2.2</version>
-                        </dependency>
-                    </dependencies>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven.deploy.plugin.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <!-- see http://maven.apache.org/plugins/maven-source-plugin/ -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>jar</goal>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- Copy dependencies to target/lib -->
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>${maven.scala.plugin.version}</version>
-                <configuration>
-                    <scalaVersion>${scala.version}</scalaVersion>
-                    <jvmArgs>
-                        <jvmArg>-Xms64m</jvmArg>
-                        <jvmArg>-Xmx1024m</jvmArg>
-                    </jvmArgs>
-                    <forceAggregate>true</forceAggregate>
-                    <linksource>true</linksource>
-                    <sourceDir>src/main/scala</sourceDir>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
-    <profiles>
-        <!--An awesome profile that only builds the stuff that you need when developing features-->
-        <profile>
-            <id>dev</id>
-            <build>
-                <plugins>
-                    <!--Skips the creation *-source.jar and *-test-source.jar-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <configuration>
-                            <skipSource>true</skipSource>
-                        </configuration>
-                    </plugin>
-                    <!--Skips all unit tests-->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <configuration>
-                            <skipTests>true</skipTests>
-                        </configuration>
-                    </plugin>
-                    <!--Skips the generation of ScalaDocs-->
-                    <plugin>
-                        <groupId>net.alchim31.maven</groupId>
-                        <artifactId>scala-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <phase>none</phase>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <skip>true</skip>
-                            <recompileMode>incremental</recompileMode>
-                            <useZincServer>true</useZincServer>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>build-scala</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <file>
-                    <exists>${basedir}/src/main/scala</exists>
-                </file>
-            </activation>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <!-- http://davidb.github.com/scala-maven-plugin/ -->
-                            <groupId>net.alchim31.maven</groupId>
-                            <artifactId>scala-maven-plugin</artifactId>
-                            <version>${maven.scala.plugin.version}</version>
-                            <configuration>
-                                <scalaVersion>${scala.version}</scalaVersion>
-                                <jvmArgs>
-                                    <jvmArg>-Xms64m</jvmArg>
-                                    <jvmArg>-Xmx1024m</jvmArg>
-                                </jvmArgs>
-                            </configuration>
-                        </plugin>
-                        <!-- Customize the generated Eclipse project files for Scala -->
-                        <plugin>
-                            <artifactId>maven-eclipse-plugin</artifactId>
-                            <version>${maven.eclipse.plugin.version}</version>
-                            <configuration>
-                                <useProjectReferences>false</useProjectReferences>
-                                <sourceIncludes>
-                                    <sourceInclude>**/*.scala</sourceInclude>
-                                </sourceIncludes>
-                                <buildcommands>
-                                    <buildcommand>ch.epfl.lamp.sdt.core.scalabuilder</buildcommand>
-                                    <!--buildcommand>org.maven.ide.eclipse.maven2Builder</buildcommand-->
-                                </buildcommands>
-                                <additionalProjectnatures>
-                                    <!-- maven-eclipse-plugin puts this nature after org.eclipse.jdt.core.javanature in .project so the project will have a J badge instead of an S in the Package Explorer -->
-                                    <!--projectnature>org.maven.ide.eclipse.maven2Nature</projectnature-->
-                                    <projectnature>ch.epfl.lamp.sdt.core.scalanature</projectnature>
-                                </additionalProjectnatures>
-                                <classpathContainers>
-                                    <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-                                    <!--classpathContainer>org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER</classpathContainer-->
-                                    <classpathContainer>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER</classpathContainer>
-                                </classpathContainers>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-                <plugins>
-                    <plugin>
-                        <groupId>net.alchim31.maven</groupId>
-                        <artifactId>scala-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>scala-compile-first</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>add-source</goal>
-                                    <goal>compile</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>scala-test-compile</id>
-                                <phase>process-test-resources</phase>
-                                <goals>
-                                    <goal>testCompile</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>doc-jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!--
-        http://www.assembla.com/spaces/scala-ide/wiki/Using_Maven_with_the_Scala_IDE_for_Eclipse?version=1
-                            http://scala-tools.org/mvnsites/maven-scala-plugin/usage_compile.html
-                    -->
-                    <!-- Adds src/main/scala and src/test/scala as source folders, from http://groups.google.com/group/liftweb/browse_thread/thread/3dac7002f9e59546/3918bba2f7a92cd3?pli=1 -->
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>build-helper-maven-plugin</artifactId>
-                        <version>1.8</version>
-                        <executions>
-                            <execution>
-                                <id>add-source</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>add-source</goal>
-                                </goals>
-                                <configuration>
-                                    <sources>
-                                        <source>src/main/scala</source>
-                                    </sources>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>add-test-source</id>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>add-test-source</goal>
-                                </goals>
-                                <configuration>
-                                    <sources>
-                                        <source>src/test/scala</source>
-                                    </sources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-site-plugin</artifactId>
-                        <version>${maven.site.plugin.version}</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.apache.maven.wagon</groupId>
-                                <artifactId>wagon-ssh</artifactId>
-                                <version>2.2</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>
