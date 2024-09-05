@@ -2,6 +2,8 @@
 # PHOENIX
 > An astrodynamics library.
 
+**This open-source repository is no longer maintained and has been archived.**
+
 ## Setup
 
 `PHOENIX` has no dependencies other than Scala, ScalaTest, and Clojure. It is build with Maven. Once Maven is configured
